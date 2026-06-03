@@ -1,0 +1,6 @@
+{
+  "name": "Google Workspace Hub",
+  "description": "A unified hub where users can sign in with their Google Account to view and manage their Gmail messages, Google Calendar events, Google Drive files, and Google Tasks from a single place.",
+  "requestFramePermissions": [],
+  "majorCapabilities": ["MAJOR_CAPABILITY_SERVER_SIDE_GEMINI_API"]
+}
