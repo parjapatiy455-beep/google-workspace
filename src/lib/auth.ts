@@ -5,11 +5,21 @@
 
 import { initializeApp } from 'firebase/app';
 import { getAuth, signInWithPopup, GoogleAuthProvider, onAuthStateChanged, User } from 'firebase/auth';
+import { getAnalytics, isSupported } from 'firebase/analytics';
 import firebaseConfig from '../../firebase-applet-config.json';
 
 // Initialize the single Firebase instance
 const app = initializeApp(firebaseConfig);
 export const auth = getAuth(app);
+
+// Initialize analytics safely if supported in the user's browser environment
+isSupported().then((supported) => {
+  if (supported) {
+    getAnalytics(app);
+  }
+}).catch((err) => {
+  console.warn('Analytics initialization skipped:', err);
+});
 
 const provider = new GoogleAuthProvider();
 
